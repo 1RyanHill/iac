@@ -36,6 +36,7 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="iac 0.0.1 documentation" href="index.html"/>
+        <link rel="next" title="CLI Commands:" href="commands.html"/>
         <link rel="prev" title="Environment" href="environment.html"/> 
 
   
@@ -95,6 +96,8 @@
 <li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="environment.html">Environment</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">git Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#key-access-for-github">Key access for GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">CLI Commands:</a></li>
 </ul>
 
             
@@ -160,7 +163,23 @@
             
   <div class="section" id="git-commands">
 <h1>git Commands<a class="headerlink" href="#git-commands" title="Permalink to this headline">¶</a></h1>
-<p>OK, there is some setup with ssh keys to avoid having to use passwords all the time.</p>
+</div>
+<div class="section" id="key-access-for-github">
+<h1>Key access for GitHub<a class="headerlink" href="#key-access-for-github" title="Permalink to this headline">¶</a></h1>
+<p><strong>On your (Linux, right?) workstation</strong>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># cd ~/.ssh</span>
+<span class="c1"># ssh-keygen -t rsa -b 2048</span>
+<span class="c1"># vi config</span>
+</pre></div>
+</div>
+<p>Enter:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Host</span> <span class="n">gitlab</span><span class="o">.</span><span class="n">com</span>
+  <span class="n">HostName</span> <span class="n">gitlab</span><span class="o">.</span><span class="n">com</span>
+  <span class="n">IdentityFile</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_rsa</span>
+</pre></div>
+</div>
+<p>If you take all the defaults on the SSH Keygen, you get two files.  The .pub file is your public key.  the one without an extension is your private key.  Do not loose this.</p>
+<p>You can use the public key to authenticate to GitHub (and other places).</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># git init     (create new repo)</span>
 <span class="c1"># git clone username@host:/pat/to/repo     (Create a local copy of a remote repo)</span>
 <span class="c1"># git config --global user.email &quot;you@mail.com&quot;</span>
@@ -192,6 +211,8 @@
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="commands.html" class="btn btn-neutral float-right" title="CLI Commands:" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="environment.html" class="btn btn-neutral" title="Environment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -1,7 +1,27 @@
 git Commands
 ============
 
-OK, there is some setup with ssh keys to avoid having to use passwords all the time.
+Key access for GitHub
+=====================
+
+
+
+
+**On your (Linux, right?) workstation**::
+
+# cd ~/.ssh
+# ssh-keygen -t rsa -b 2048
+# vi config
+
+Enter::
+
+  Host gitlab.com
+    HostName gitlab.com
+    IdentityFile ~/.ssh/id_rsa
+
+If you take all the defaults on the SSH Keygen, you get two files.  The .pub file is your public key.  the one without an extension is your private key.  Do not loose this.
+
+You can use the public key to authenticate to GitHub (and other places).
 
 ::
 
