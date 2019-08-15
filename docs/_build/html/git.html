@@ -169,6 +169,7 @@
 <p><strong>On your (Linux, right?) workstation</strong>:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># cd ~/.ssh</span>
 <span class="c1"># ssh-keygen -t rsa -b 2048</span>
+<span class="c1"># chmod 0600 id_rsa</span>
 <span class="c1"># vi config</span>
 </pre></div>
 </div>
@@ -179,9 +180,13 @@
 </pre></div>
 </div>
 <p>If you take all the defaults on the SSH Keygen, you get two files.  The .pub file is your public key.  the one without an extension is your private key.  Do not loose this.</p>
-<p>You can use the public key to authenticate to GitHub (and other places).</p>
+<p>You can use the public key to authenticate to GitHub (and other places).  Add your public key to your GitHub account and test key auth using:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># ssh -T git@github.com</span>
+</pre></div>
+</div>
+<p>Finally.  Some Git commands.:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># git init     (create new repo)</span>
-<span class="c1"># git clone username@host:/pat/to/repo     (Create a local copy of a remote repo)</span>
+<span class="c1"># git clone username@host:/path/to/repo (Create a local copy of a remote repo; looks like #  git remote add origin https://github.com/1RyanHill/iac.git)</span>
 <span class="c1"># git config --global user.email &quot;you@mail.com&quot;</span>
 <span class="c1"># git config --global user.name &quot;username&quot;</span>
 <span class="c1"># git config --list</span>
@@ -190,7 +195,11 @@
 <span class="c1"># git commit -m &quot;commit comment&quot;</span>
 <span class="c1">#</span>
 <span class="c1"># git branch</span>
-<span class="c1"># git push -u git@github.com:&lt;username&gt;/&lt;project name&gt; master  (sets the remote repo)</span>
+<span class="c1"># -  Go to gitHub and add the Repo.</span>
+<span class="c1"># git remote add origin https://github.com/1RyanHill/iac.git)</span>
+<span class="c1"># git push -u origin master</span>
+<span class="c1"># - The below might also work?</span>
+<span class="c1"># git push -u git@github.com:&lt;username&gt;/&lt;project name&gt; master   (sets the remote repo)</span>
 <span class="c1"># git push</span>
 <span class="c1">#</span>
 <span class="c1"># git checkout &lt;branch&gt;</span>
