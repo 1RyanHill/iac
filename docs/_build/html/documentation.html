@@ -95,11 +95,14 @@
 <li class="toctree-l1"><a class="reference internal" href="goals.html">IAC Project Goals</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Documentation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#using-the-docs">Using the Docs:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#building-docs">Building Docs:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-docs">Setting up Docs:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editing-docs">Editing Docs:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#connecting-to-readthe-docs">Connecting to ReadThe Docs:</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="environment.html">Environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">git Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">CLI Commands:</a></li>
 </ul>
 
             
@@ -168,9 +171,10 @@
 <p>We are going to use ReadTheDocs.io for online documentation.</p>
 <div class="section" id="using-the-docs">
 <h2>Using the Docs:<a class="headerlink" href="#using-the-docs" title="Permalink to this headline">¶</a></h2>
+<p>Documentation for this effort can be found at <a class="reference external" href="https://iac.readthedocs.io/">https://iac.readthedocs.io/</a></p>
 </div>
-<div class="section" id="building-docs">
-<h2>Building Docs:<a class="headerlink" href="#building-docs" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setting-up-docs">
+<h2>Setting up Docs:<a class="headerlink" href="#setting-up-docs" title="Permalink to this headline">¶</a></h2>
 <p>Sphinx is a documentation generation tool.  It allows us to treat documenation as code.
 ReadTheDocs links to our documenation in GitHub and puts it online for us.</p>
 <p>We are following instructions from <a class="reference external" href="http://docs.readthedocs.io/en/stable/intro/getting-started-with-sphinx.html">http://docs.readthedocs.io/en/stable/intro/getting-started-with-sphinx.html</a>
@@ -188,18 +192,52 @@ Navigate tot he project folder and create a docs directory,:</p>
 <span class="c1"># sphinx-quickstart</span>
 </pre></div>
 </div>
-<p>Take defaults except do say y to Seperate source and build directories.
-There is a defalt RTD template.  Make it default by editing conf.py (see <a class="reference external" href="https://hive.f5.com/docs/DOC-44051">https://hive.f5.com/docs/DOC-44051</a>)
-Build the HTML files with this command:</p>
+<p>Take defaults except do say y to Seperate source and build directories.</p>
+<p>There is a defalt RTD template.  Make it default by editing conf.py (see <a class="reference external" href="https://iac.readthedocs.io/">https://iac.readthedocs.io/</a> and (better) <a class="reference external" href="https://hive.f5.com/docs/DOC-44051">https://hive.f5.com/docs/DOC-44051</a>)</p>
+<p>Edits to conf.py to enable the theme:</p>
+<p>Configure your conf.py file to apply the Read the Docs theme.  Add an “import sphinx_rtd_theme” near the top of the config file just under the other import statements that are commented out.:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># import os</span>
+<span class="c1"># import sys</span>
+<span class="kn">import</span> <span class="nn">sphinx_rtd_theme</span>
+</pre></div>
+</div>
+<p>Comment  out the default Sphinx theme.:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s1">&#39;alabaster&#39;</span>
+<span class="c1"># html_theme = &#39;alabaster&#39;</span>
+</pre></div>
+</div>
+<p>Add the below lines to the bottom of the config file.:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s2">&quot;sphinx_rtd_theme&quot;</span>
+<span class="n">html_theme_path</span> <span class="o">=</span> <span class="p">[</span><span class="n">sphinx_rtd_theme</span><span class="o">.</span><span class="n">get_html_theme_path</span><span class="p">()]</span>
+</pre></div>
+</div>
+<p>Build the HTML files with this command:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># make html</span>
 </pre></div>
 </div>
-<p>look in docs/_build/html/index.html to see the local version of your docs.</p>
+<p>look in docs/_build/html/index.html to see the local version of your docs.  You can use a browser to point to something like this:  <a class="reference external" href="file:///home/ryan/Documents/github/iac/docs/_build/html/index.html">file:///home/ryan/Documents/github/iac/docs/_build/html/index.html</a></p>
+</div>
+<div class="section" id="editing-docs">
+<h2>Editing Docs:<a class="headerlink" href="#editing-docs" title="Permalink to this headline">¶</a></h2>
+<p>Edit and add files in the docs directory.  The file extensions will be .rst (for ReStructuredText).  Docs for Sphinx / reStucturedText can be found here: <a class="reference external" href="http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html</a></p>
 <p>vi index.rst
 Change Main header (above ======)</p>
 <p>For sub-pages, put these into the toctree, start them under the : from maxdepth.</p>
-<p>Connecting to ReadThe Docs:</p>
-<p>Go to <a class="reference external" href="https://readthedocs.org">https://readthedocs.org</a>.  Create an account.</p>
+</div>
+<div class="section" id="connecting-to-readthe-docs">
+<h2>Connecting to ReadThe Docs:<a class="headerlink" href="#connecting-to-readthe-docs" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Go to <a class="reference external" href="https://readthedocs.org">https://readthedocs.org</a>.  Create an account.</li>
+<li>Import your project.</li>
+<li>Build your docs.</li>
+<li>Any time you want to update the published docs, return to <a class="reference external" href="https://readthedocs.org/projects/iac/">https://readthedocs.org/projects/iac/</a> and build a new version.</li>
+<li>There is an auto-build but it fails on my linux box.  May yours work better.</li>
+</ul>
+<p><strong>Troubleshooting:</strong></p>
+<ul class="simple">
+<li>Make sure your GitHub repo is public.  Otherise you get an error about an inability to log in.</li>
+<li>Make sure you have pushed all of your changes to the master branch of your github repo.</li>
+</ul>
 </div>
 </div>
 
