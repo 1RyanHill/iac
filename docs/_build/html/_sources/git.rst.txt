@@ -29,7 +29,7 @@ You can use the public key to authenticate to GitHub (and other places).  Add yo
 Finally.  Some Git commands.::
 
 # git init     (create new repo)
-# git clone username@host:/path/to/repo (Create a local copy of a remote repo; looks like #  git remote add origin https://github.com/1RyanHill/iac.git)
+# git clone username@host:/path/to/repo (Create a local copy of a remote repo)
 # git config --global user.email "you@mail.com"
 # git config --global user.name "username"
 # git config --list
