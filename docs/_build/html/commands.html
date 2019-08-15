@@ -1,0 +1,270 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CLI Commands: &mdash; iac 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="iac 0.0.1 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> iac
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="goals.html">IAC Project Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">git Commands</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">iac</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>CLI Commands:</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/commands.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cli-commands">
+<h1>CLI Commands:<a class="headerlink" href="#cli-commands" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="set-up-github-project">
+<h2>Set up GitHub Project:<a class="headerlink" href="#set-up-github-project" title="Permalink to this headline">¶</a></h2>
+<p>200~mkdir github
+292  cd github
+293  mkdir iac
+294  cd iac
+295  mkdir docs
+296  git init
+297  touch README
+298  git add *
+299  git commit -m “initial commit”
+302  git status
+303  git branch</p>
+<p>go to github and add a Repo.</p>
+<p>305  git remote add origin <a class="reference external" href="https://github.com/1RyanHill/iac.git">https://github.com/1RyanHill/iac.git</a>
+306  git push -u origin master</p>
+</div>
+<div class="section" id="start-docs">
+<h2>Start docs:<a class="headerlink" href="#start-docs" title="Permalink to this headline">¶</a></h2>
+<p>309  cd docs</p>
+<dl class="docutils">
+<dt><a class="reference external" href="https://hive.f5.com/docs/DOC-44051">https://hive.f5.com/docs/DOC-44051</a></dt>
+<dd>$ pip install sphinx
+$ pip install sphinx-autobuild
+$ pip install sphinx_rtd_theme</dd>
+</dl>
+<p>310 sphinx-quickstart</p>
+<p>Customize the Sphinx Environment</p>
+<p>Configure your conf.py file to apply the Read the Docs theme.  Add an “import sphinx_rtd_theme” near the top of the config file just under the other import statements that are commented out.</p>
+<blockquote>
+<div># import os
+# import sys
+import sphinx_rtd_theme</div></blockquote>
+<p>Comment  out the default Sphinx theme.</p>
+<blockquote>
+<div>html_theme = ‘alabaster’
+# html_theme = ‘alabaster’</div></blockquote>
+<p>Add the below lines to the bottom of the config file.</p>
+<blockquote>
+<div>html_theme = “sphinx_rtd_theme”
+html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]</div></blockquote>
+<p>312  make html</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Ryan Hill.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
